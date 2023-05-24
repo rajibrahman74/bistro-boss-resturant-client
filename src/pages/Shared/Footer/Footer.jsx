@@ -1,7 +1,7 @@
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   return (
-    <footer>
+    <footer className="mt-12">
       <div className="footer p-10 bg-neutral text-neutral-content">
         <div>
           <svg
