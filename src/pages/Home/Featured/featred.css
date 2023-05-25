@@ -4,5 +4,9 @@
       rgba(21, 21, 21, 0.7),
       rgba(21, 21, 21, 0.7)
     ),
-    url(../../../assets/home/featured.jpg);
+    url("../../../assets/home/featured.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
