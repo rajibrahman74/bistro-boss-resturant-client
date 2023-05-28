@@ -11,7 +11,6 @@ const Cover = ({ coverImage, title }) => {
         strength={-200}
         className="bg-"
       >
-        Blur transition from min to max
         <div className="hero h-[600px]">
           <div className="hero-o bg-opacity-0"></div>
           <div className="hero-content text-center text-neutral-content">
