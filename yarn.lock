@@ -1812,7 +1812,7 @@
   "resolved" "https://registry.npmjs.org/queue-microtask/-/queue-microtask-1.2.3.tgz"
   "version" "1.2.3"
 
-"react-dom@^16.6.0 || ^17.0.0 || ^18.0.0", "react-dom@^18.2.0", "react-dom@>=16.8", "react-dom@>=17":
+"react-dom@^16.6.0 || ^17.0.0 || ^18.0.0", "react-dom@^18.2.0", "react-dom@>=16.8", "react-dom@>=17", "react-dom@16.x.x || 17.x.x || 18.x.x":
   "integrity" "sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g=="
   "resolved" "https://registry.npmjs.org/react-dom/-/react-dom-18.2.0.tgz"
   "version" "18.2.0"
@@ -1848,6 +1848,11 @@
   "resolved" "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz"
   "version" "16.13.1"
 
+"react-parallax@^3.5.1":
+  "integrity" "sha512-p5zPsPsqELlIOGaPS01O0IRx8R2bxcBAtrdF/RHf9nIxxk5hijbM2y89tk4rJQBcNH6ESSLe7J2NV4/ms7FLFw=="
+  "resolved" "https://registry.npmjs.org/react-parallax/-/react-parallax-3.5.1.tgz"
+  "version" "3.5.1"
+
 "react-refresh@^0.14.0":
   "integrity" "sha512-wViHqhAd8OHeLS/IRMJjTSDHF3U9eWi62F/MledQGPdJGDhodXJ9PBLNGr6WWL7qlH12Mt3TyTpbS+hGXMjCzQ=="
   "resolved" "https://registry.npmjs.org/react-refresh/-/react-refresh-0.14.0.tgz"
@@ -1877,7 +1882,7 @@
   dependencies:
     "@remix-run/router" "1.6.2"
 
-"react@^16.6.0 || ^17.0.0 || ^18.0.0", "react@^18.2.0", "react@>=16.8", "react@>=17":
+"react@^16.6.0 || ^17.0.0 || ^18.0.0", "react@^18.2.0", "react@>=16.8", "react@>=17", "react@16.x.x || 17.x.x || 18.x.x":
   "integrity" "sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ=="
   "resolved" "https://registry.npmjs.org/react/-/react-18.2.0.tgz"
   "version" "18.2.0"
