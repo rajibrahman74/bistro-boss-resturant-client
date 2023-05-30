@@ -1,7 +1,13 @@
 import React from "react";
 
 const FoodCard = ({ item }) => {
+  if (!item) {
+    // Handle the case when item is undefined or null
+    return null;
+  }
+
   const { name, image, recipe } = item;
+
   return (
     <div className="card w-96 bg-base-100 shadow-xl">
       <figure>
