@@ -3,9 +3,12 @@ import {
   LoadCanvasTemplate,
   validateCaptcha,
 } from "react-simple-captcha";
-import loginImage from "../../../src/assets/others/authentication1.png";
-import { useEffect, useRef, useState } from "react";
+import loginImage from "../../../src/assets/others/authentication2.png";
+import { useContext, useEffect, useRef, useState } from "react";
+import { AuthContext } from "../../providers/AuthProvider";
+import { Link } from "react-router-dom";
 const Login = () => {
+  const { singIn } = useContext(AuthContext);
   const capchaRef = useRef(null);
   const [disabled, setDisabled] = useState(true);
   useEffect(() => {
@@ -17,9 +20,17 @@ const Login = () => {
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
-
     const user = { email, password };
     console.log(user);
+
+    singIn(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        console.error(error.message);
+      });
   };
 
   const handleValidateCapcha = () => {
@@ -97,6 +108,14 @@ const Login = () => {
                 value="Login"
               />
             </div>
+            <p className="text-sm text-center text-black">
+              <span>
+                New here? 
+                <Link className="underline text-[#0000ff] ml-1" to="/signup">
+                   Create an account
+                </Link>
+              </span>
+            </p>
           </form>
         </div>
       </div>
