@@ -2521,6 +2521,11 @@
     "react-fast-compare" "^3.2.0"
     "shallowequal" "^1.1.0"
 
+"react-hook-form@^7.44.2":
+  "integrity" "sha512-IyihmIbCwzDI/iqlecTRa7+4BCnzNx40upSlGvIU7qwENhTf6APatm4bmL9ANtWKPYlD67SIlxfls7GwCUe+Lg=="
+  "resolved" "https://registry.npmjs.org/react-hook-form/-/react-hook-form-7.44.2.tgz"
+  "version" "7.44.2"
+
 "react-html-parser@^2.0.2":
   "integrity" "sha512-XeerLwCVjTs3njZcgCOeDUqLgNIt/t+6Jgi5/qPsO/krUWl76kWKXMeVs2LhY2gwM6X378DkhLjur0zUQdpz0g=="
   "resolved" "https://registry.npmjs.org/react-html-parser/-/react-html-parser-2.0.2.tgz"
@@ -2582,7 +2587,7 @@
     "clsx" "^1.1.0"
     "prop-types" "^15.5.0"
 
-"react@*", "react@^0.14.0 || ^15.0.0 || ^16.0.0-0", "react@^16.6.0 || ^17.0.0 || ^18.0.0", "react@^18.0.0", "react@^18.2.0", "react@>=16.8", "react@>=17", "react@16.x.x || 17.x.x || 18.x.x":
+"react@*", "react@^0.14.0 || ^15.0.0 || ^16.0.0-0", "react@^16.6.0 || ^17.0.0 || ^18.0.0", "react@^16.8.0 || ^17 || ^18", "react@^18.0.0", "react@^18.2.0", "react@>=16.8", "react@>=17", "react@16.x.x || 17.x.x || 18.x.x":
   "integrity" "sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ=="
   "resolved" "https://registry.npmjs.org/react/-/react-18.2.0.tgz"
   "version" "18.2.0"
