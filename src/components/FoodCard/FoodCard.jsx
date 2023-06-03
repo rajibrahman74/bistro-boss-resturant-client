@@ -1,10 +1,39 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AuthContext } from "../../providers/AuthProvider";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const FoodCard = ({ item }) => {
   const { name, image, recipe, price } = item;
+  const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleAddToCart = (item) => {
     console.log(item);
+    if (user) {
+      fetch("http://localhost:5000/carts")
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.insertedId) {
+            Swal.fire({
+              position: "top-center",
+              icon: "success",
+              title: "Added to cart",
+              showConfirmButton: false,
+              timer: 1500,
+            });
+          }
+        });
+    } else {
+      Swal.fire({
+        position: "top-center",
+        icon: "error",
+        title: "Please login first",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+      navigate("/login");
+    }
   };
 
   return (
