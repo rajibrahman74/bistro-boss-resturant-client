@@ -3,8 +3,9 @@ import {
   FaWallet,
   FaCalendar,
   FaHome,
+  FaShoppingBag,
 } from "react-icons/fa";
-import { Link, Outlet } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 
 const Dashboard = () => {
   return (
@@ -21,46 +22,43 @@ const Dashboard = () => {
       </div>
       <div className="drawer-side">
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-        <ul className="menu p-4 w-80">
+        <ul className="menu p-4 w-80 bg-[#D1A054]">
           <li>
-            <Link>
+            <NavLink to="/dashboard/home">
               <FaHome />
               User Home
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link>
+            <NavLink to="/dashboard/reservations">
               <FaCalendar />
               Reservations
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link>
+            <NavLink to="/dashboard/history">
               <FaWallet />
               Payment history
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link>
+            <NavLink to="/dashboard/mycart">
               <FaShoppingCart />
               My cart
-            </Link>
+            </NavLink>
           </li>
           <div className="divider"></div>
           <li>
-            <Link to="/">
+            <NavLink to="/">
               <FaHome />
               Home
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link to="/menu">
-              
-              Menu
-            </Link>
+            <NavLink to="/menu">Menu</NavLink>
           </li>
           <li>
-            <Link></Link>
+            <NavLink to="/order">Order food</NavLink>
           </li>
         </ul>
       </div>
