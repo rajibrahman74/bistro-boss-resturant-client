@@ -4,26 +4,34 @@ import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { AuthContext } from "../../providers/AuthProvider";
+import Swal from "sweetalert2";
 
 const SignUp = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-    reset
+    reset,
   } = useForm();
-  const {createUser} = useContext(AuthContext)
+  const { createUser } = useContext(AuthContext);
   const onSubmit = (data) => {
     console.log(data);
     createUser(data.email, data.password)
-    .then(result => {
-      const loggedUser = result.user;
-      console.log(loggedUser);
-      reset()
-    })
-    .catch(error => {
-      console.error(error.message);
-    })
+      .then((result) => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Sign Up successfully",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        reset();
+      })
+      .catch((error) => {
+        console.error(error.message);
+      });
   };
   return (
     <>
@@ -101,7 +109,7 @@ const SignUp = () => {
                 <input
                   className="text-white btn border-0 bg-[#d1a054b3]"
                   type="submit"
-                  value="Login"
+                  value="Sign up"
                 />
               </div>
               <p className="text-sm text-center text-black">
