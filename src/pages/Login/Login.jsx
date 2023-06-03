@@ -31,19 +31,30 @@ const Login = () => {
     const password = form.password.value;
     console.log(email, password);
 
-    singIn(email, password).then((result) => {
-      const user = result.user;
-      console.log(user);
-      Swal.fire({
-        position: "top-start",
-        icon: "success",
-        title: "Login successfully",
-        showConfirmButton: false,
-        timer: 1500,
+    singIn(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        Swal.fire({
+          position: "top-start",
+          icon: "success",
+          title: "Login successfully",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        form.reset();
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        console.error(error.message);
+        Swal.fire({
+          position: "top-start",
+          icon: "error",
+          title: error.message,
+          showConfirmButton: false,
+          timer: 1500,
+        });
       });
-      form.reset();
-      navigate(from, { replace: true });
-    });
   };
 
   const handleValidateCaptcha = (e) => {
@@ -113,7 +124,7 @@ const Login = () => {
               </div>
               <div className="form-control mt-6">
                 <input
-                // TODO: make button disabled for capcha
+                  // TODO: make button disabled for capcha
                   disabled={false}
                   className="text-white btn border-0 bg-[#d1a054b3]"
                   type="submit"
