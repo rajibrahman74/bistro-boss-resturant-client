@@ -16,22 +16,36 @@ const SignUp = () => {
   const { createUser, updateUserProfile } = useContext(AuthContext);
   const navigate = useNavigate();
   const onSubmit = (data) => {
-    console.log(data);
     createUser(data.email, data.password)
       .then((result) => {
         const loggedUser = result.user;
-        console.log(loggedUser);
         updateUserProfile(data.name, data.photoUrl)
           .then((result) => {
-            console.log(result.user);
-            reset();
-            Swal.fire({
-              position: "top-end",
-              icon: "error",
-              title: "User profile updated",
-              showConfirmButton: false,
-              timer: 1500,
-            });
+            const saveUser = {
+              name: data.name,
+              email: data.email,
+              password: data.password,
+            };
+            fetch("http://localhost:5000/users", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(saveUser),
+            })
+              .then((res) => res.json())
+              .then((data) => {
+                if (data.insertedId) {
+                  reset();
+                  Swal.fire({
+                    position: "top-end",
+                    icon: "error",
+                    title: "User profile updated",
+                    showConfirmButton: false,
+                    timer: 1500,
+                  });
+                }
+              });
           })
           .catch((error) => {
             console.log(error.message);
