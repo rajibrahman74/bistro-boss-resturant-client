@@ -10,6 +10,7 @@ import { AuthContext } from "../../providers/AuthProvider";
 
 import loginImage from "../../../src/assets/others/authentication2.png";
 import Swal from "sweetalert2";
+import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 
 const Login = () => {
   const { singIn } = useContext(AuthContext);
@@ -18,7 +19,6 @@ const Login = () => {
   const location = useLocation();
 
   const from = location.state?.from?.pathname || "/";
-  console.log(from);
 
   useEffect(() => {
     loadCaptchaEnginge(6);
@@ -78,68 +78,71 @@ const Login = () => {
             <img className="w-full" src={loginImage} alt="Login" />
           </div>
           <div className="card flex-shrink-0 w-full md:w-1/2">
-            <form
-              onSubmit={handleLogin}
-              className="card-body w-full md:w-[436px] mx-auto shadow-2xl bg-base-100 h-full"
-            >
-              <h2 className="text-center font-semibold text-2xl">Login</h2>
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text">Email</span>
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="email"
-                  className="input input-bordered"
-                />
-              </div>
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text">Password</span>
-                </label>
-                <input
-                  type="password"
-                  name="password"
-                  placeholder="password"
-                  className="input input-bordered"
-                />
-                <label className="label">
-                  <a href="#" className="label-text-alt link link-hover">
-                    Forgot password?
-                  </a>
-                </label>
-              </div>
-              <div className="form-control">
-                <label className="label">
-                  <LoadCanvasTemplate />
-                </label>
-                <input
-                  onBlur={handleValidateCaptcha}
-                  type="text"
-                  name="captcha"
-                  placeholder="Type above captcha"
-                  className="input input-bordered"
-                />
-              </div>
-              <div className="form-control mt-6">
-                <input
-                  // TODO: make button disabled for capcha
-                  disabled={disabled}
-                  className="text-white btn border-0 bg-[#d1a054b3]"
-                  type="submit"
-                  value="Login"
-                />
-              </div>
-              <p className="text-sm text-center text-black">
-                <span>
-                  New here?
-                  <Link className="underline text-[#0000ff] ml-1" to="/signup">
-                    Create an account
-                  </Link>
-                </span>
-              </p>
-            </form>
+            <div className="card-body w-full md:w-[436px] mx-auto shadow-2xl bg-base-100 h-full">
+              <form onSubmit={handleLogin}>
+                <h2 className="text-center font-semibold text-2xl">Login</h2>
+                <div className="form-control">
+                  <label className="label">
+                    <span className="label-text">Email</span>
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="email"
+                    className="input input-bordered"
+                  />
+                </div>
+                <div className="form-control">
+                  <label className="label">
+                    <span className="label-text">Password</span>
+                  </label>
+                  <input
+                    type="password"
+                    name="password"
+                    placeholder="password"
+                    className="input input-bordered"
+                  />
+                  <label className="label">
+                    <a href="#" className="label-text-alt link link-hover">
+                      Forgot password?
+                    </a>
+                  </label>
+                </div>
+                <div className="form-control">
+                  <label className="label">
+                    <LoadCanvasTemplate />
+                  </label>
+                  <input
+                    onBlur={handleValidateCaptcha}
+                    type="text"
+                    name="captcha"
+                    placeholder="Type above captcha"
+                    className="input input-bordered"
+                  />
+                </div>
+                <div className="form-control mt-6">
+                  <input
+                    // TODO: make button disabled for capcha
+                    disabled={disabled}
+                    className="text-white btn border-0 bg-[#d1a054b3]"
+                    type="submit"
+                    value="Login"
+                  />
+                </div>
+                <p className="text-sm text-center text-black">
+                  <span>
+                    New here?
+                    <Link
+                      className="underline text-[#0000ff] ml-1"
+                      to="/signup"
+                    >
+                      Create an account
+                    </Link>
+                  </span>
+                </p>
+              </form>
+              <SocialLogin />
+            </div>
           </div>
         </div>
       </div>
