@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import { Helmet } from "react-helmet-async";
 import { FaTrashAlt, FaUserShield } from "react-icons/fa";
+import Swal from "sweetalert2";
 
 const AllUsers = () => {
   const { data: users = [], refetch } = useQuery(["users"], async () => {
@@ -9,7 +10,23 @@ const AllUsers = () => {
     return res.json();
   });
   const handleMakeAdmin = (user) => {
-    console.log(user);
+    fetch(`http://localhost:5000/users/admin/${user._id}`, {
+      method: "PATCH",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.modifiedCount) {
+          refetch();
+          Swal.fire({
+            position: "top-start",
+            icon: "success",
+            title: `${user.name} is and admin now`,
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+      });
   };
   const handleDelete = (user) => {
     console.log(user);
@@ -42,8 +59,8 @@ const AllUsers = () => {
                 <td>{user.email}</td>
                 <td className="text-end">
                   <button
-                    onClick={() => handleMakeAdmin(user._id)}
-                    className="btn -btn-ghost btn-xl bg:hover-none text-orange-600 bg-orange-600 border-0 text-xla"
+                    onClick={() => handleMakeAdmin(user)}
+                    className="btn btn-ghost btn-xl bg:hover-none bg-none border-0"
                   >
                     {user.role === "Admin" ? "Admin" : <FaUserShield />}
                   </button>
