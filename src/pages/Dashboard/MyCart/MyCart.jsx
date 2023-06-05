@@ -72,14 +72,14 @@ const MyCart = () => {
                 </td>
                 <td>{item.name}</td>
                 <td className="text-end">${item.price}</td>
-                <th>
+                <td>
                   <button
                     onClick={() => handleDelete(item)}
                     className="btn btn-ghost btn-wide bg:hover-none text-red-600 text-xl"
                   >
                     <FaTrashAlt />
                   </button>
-                </th>
+                </td>
               </tr>
             ))}
           </tbody>
