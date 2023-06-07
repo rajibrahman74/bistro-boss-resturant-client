@@ -3,10 +3,12 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
 import { FaShoppingCart } from "react-icons/fa";
 import useCart from "../../../hooks/useCart";
+import useAdmin from "../../../hooks/useAdmin";
 
 const NavBar = () => {
   const { user, logOut } = useContext(AuthContext);
   console.log(user);
+  const [isAdmin] = useAdmin();
   const [cart] = useCart();
 
   const hangleLogOut = () => {
@@ -29,9 +31,15 @@ const NavBar = () => {
         <li>
           <Link to="/order/salad">Order Food</Link>
         </li>
-        <li>
-          <Link to="/secret">Secret</Link>
-        </li>
+        {isAdmin ? (
+          <li>
+            <Link to="/dashboard/adminhome">Dashboard</Link>
+          </li>
+        ) : (
+          <li>
+            <Link to="/dashboard/userhome">Dashboard</Link>
+          </li>
+        )}
         <li>
           <Link to="/dashboard/mycart">
             <button className="btn flex justify-center items-center gap-3">
